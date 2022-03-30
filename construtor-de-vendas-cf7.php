@@ -3,7 +3,7 @@
  * Plugin Name: Construtor de Vendas CF7
  * Author: ER Soluções Web LTDA
  * Author URI: https://ersolucoesweb.com.br
- * Version: 1.0.0
+ * Version: 0.0.1
  * Description: Integração da API do Construtor de Vendas como o Contact Form 7
  */
 
@@ -36,7 +36,7 @@ add_action('wpcf7_before_send_mail', function($form){
     "modulo" =>  'gestor',
     "permitir_alteracao" => "true",
     "origem" =>  'SI',
-    "idempreendimento" => get_option('cv_cf7_empreendimento')
+    "idempreendimento" => (string) get_option('cv_cf7_empreendimento')
   ]);
 
   $req = wp_remote_post(get_option('cv_cf7_endpoint') . '/api/cvio/lead', [
